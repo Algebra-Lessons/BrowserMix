@@ -43,6 +43,49 @@ body[data-theme="custom"]{--accent:var(--user-accent,#f00000);--shell1:var(--use
 .library-item.folder:before{content:'📁'}
 .library-item small{font-size:11px}
 @media(max-width:1100px){.library-layout{grid-template-columns:160px minmax(0,1fr)}}
+
+/* MPC Sample inspired three-zone hardware faceplate */
+.unit.mpc-layout{display:flex;flex-direction:column;width:min(1190px,96%);padding:23px 27px 35px;gap:18px;border-radius:24px 24px 40px 40px}
+.mpc-top{display:grid;grid-template-columns:220px minmax(0,1fr) 205px;gap:18px;align-items:stretch;background:linear-gradient(140deg,#30373c,#11171c);border-radius:16px;padding:19px;color:#edf3f5;box-shadow:inset 0 2px 8px #0009}
+.mpc-top .display{height:260px;min-width:0;margin:0;border:6px solid #374147}
+.mpc-top .display canvas{height:98px}
+.mpc-top .brand{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;border:0;margin:0;padding:10px}
+.mpc-top .brand b{font-size:27px;color:var(--accent)}
+.mpc-top .brand span{font-size:10px;color:#aeb9c2;line-height:1.8}
+.mpc-top .mpc-top-side{display:flex;flex-direction:column;gap:12px;justify-content:center}
+.mpc-top .mpc-top-side .control{color:#e2e9ec}
+.mpc-top .mpc-top-side .control .knob{width:79px;height:79px;box-shadow:inset 0 3px 8px #fff4,0 5px 14px #000a}
+.mpc-top .mpc-top-side .control .knob:before{left:37px;top:8px;height:24px;width:5px}
+.mpc-top .mpc-top-side .control input{max-width:160px}
+.mpc-top .mpc-top-side .mpc-side-caption{font-size:11px;letter-spacing:2px;text-align:center;color:#a5b5c0}
+.mpc-body{display:grid;grid-template-columns:210px minmax(0,1fr) 225px;gap:16px;align-items:start}
+.mpc-left,.mpc-right{display:flex;flex-direction:column;gap:12px;min-width:0}
+.mpc-left .row,.mpc-right .row{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}
+.mpc-left .row.three,.mpc-right .row.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mpc-left .row .btn,.mpc-right .row .btn{min-height:47px;font-size:10px;padding:9px 5px}
+.mpc-left .modes{display:grid;grid-template-columns:1fr;gap:7px;margin:0}
+.mpc-left .modeinfo{font-size:11px;line-height:1.45}
+.mpc-center{min-width:0;background:linear-gradient(145deg,#7c878b55,#aab4b755);padding:12px;border-radius:16px;border:2px solid #7b858a}
+.mpc-center .righttop{margin:0 0 12px}
+.mpc-center .pads{height:auto;aspect-ratio:1/1;gap:9px;padding:12px;border-radius:10px}
+.mpc-center .pad .key{font-size:23px}
+.mpc-center .pad .name{font-size:10px}
+.mpc-center .bottom{margin-top:10px;line-height:1.4}
+.mpc-right .controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:0}
+.mpc-right .controls .control{font-size:10px}
+.mpc-right .controls .control .knob{width:57px;height:57px}
+.mpc-right .controls .control .knob:before{left:27px;top:6px;height:18px}
+.mpc-right .controls .control input{max-width:100%}
+.mpc-right .mpc-panel-title,.mpc-left .mpc-panel-title{font-size:10px;font-weight:900;letter-spacing:1.7px;border-bottom:1px solid #65737c;padding:7px 0;color:inherit}
+.mpc-lower{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;border-top:2px solid #859096;padding-top:18px}
+.mpc-lower .studio-tools{margin:0}
+.mpc-lower .mpc-sequence{padding:12px;border:1px solid #8c9696;border-radius:9px;background:#ffffff25;min-width:0}
+.mpc-sequence .seq{gap:3px}
+.mpc-sequence .step{height:34px}
+.mpc-lower .mpc-sequence .row{margin:12px 0}
+.mpc-lower .mpc-sequence .hint{margin-top:12px}
+.mpc-lower .mpc-sequence .status{margin-top:12px}
+@media(max-width:1100px){body{min-width:900px}.unit.mpc-layout{width:96%;padding:18px}.mpc-top{grid-template-columns:165px minmax(0,1fr) 155px;gap:10px}.mpc-body{grid-template-columns:175px minmax(0,1fr) 185px;gap:10px}.mpc-center .pad .key{font-size:18px}.mpc-center .pad .name{font-size:9px}.mpc-lower{grid-template-columns:1fr}}
 </style></head><body><header><h1>Browser<span> Mix</span></h1><div class="themebar"><small>BROWSERSAMPLE · MPC STUDIO</small><button class="btn navhome" id="home">⌂ MODES</button><button class="btn navhome" id="themebutton">◉ STYLES</button></div></header><main class="unit" id="unit"><section><div class="brand"><b>BrowserSample</b><span>BROWSER MIX / MPC SAMPLE STATION</span></div><div class="display"><div class="meta"><span id="screenmode">SAMPLE / CHOP</span><span id="screenbank">BANK A</span></div><h2 id="title">LOAD A SONG TO START</h2><p id="detail">PRESS LOAD SONG · PLAY · TAP PADS TO CHOP</p><canvas id="wave" width="620" height="130" title="Click waveform to seek in song mode"></canvas><div class="transport"><div id="progress"></div></div><div class="screenfoot"><span>POSITION <strong id="position">0:00 / 0:00</strong></span><span>PAD <strong id="padno">01</strong></span><span>BPM <strong id="bpmdisplay">100</strong></span></div></div><div class="modes"><button class="btn active" data-mode="chop">✂ SAMPLE CHOP</button><button class="btn" data-mode="drums">◉ DRUM KIT</button><button class="btn" data-mode="sequence">▦ SEQUENCER</button></div><div class="modeinfo" id="modeinfo">Upload a song, press PLAY SONG, then tap any pad while it plays to mark the start of a slice. Tap another pad to mark the end of the previous slice. Stop the song and play your chops!</div><div class="row three"><button class="btn red" id="librarysongs">♫ SONG LIBRARY</button><button class="btn" id="librarydrums">◉ DRUM LIBRARY</button><button class="btn green" id="saveproject">↓ SAVE PROJECT</button></div><div class="row three"><button class="btn red" id="loadsong">↑ LOAD SONG</button><button class="btn" id="songplay">▶ PLAY SONG</button><button class="btn" id="songstop">■ STOP SONG</button></div><div class="row three"><button class="btn" id="autoslice">✂ AUTO 16 CHOPS</button><button class="btn" id="loadpad">↑ LOAD TO PAD</button><button class="btn" id="clear">CLEAR PAD</button></div><div class="controls"><div class="control">MASTER<div class="knob"></div><input id="master" type="range" min="0" max="100" value="80"></div><div class="control">PAD LEVEL<div class="knob"></div><input id="level" type="range" min="0" max="100" value="100"></div><div class="control">SAMPLE PITCH<div class="knob"></div><input id="pitch" type="range" min="-12" max="12" value="0"></div></div><div class="studio-tools"><div class="studio-head"><h3>PAD SOUND DESIGN · SELECT A PAD TO EDIT</h3><span class="small" id="editpad">PAD 01</span></div><div class="toolgrid">
 <label>FINE TUNE <output id="fineout">0 cents</output><input id="fine" type="range" min="-100" max="100" value="0"></label>
 <label>FILTER CUTOFF <output id="filterout">20000 Hz</output><input id="filter" type="range" min="100" max="20000" step="100" value="20000"></label>
@@ -101,5 +144,39 @@ $('themedone').onclick=()=>$('themeeditor').style.display='none';
 function updateKnob(input){const parent=input.closest('.control');if(!parent)return;const knob=parent.querySelector('.knob');if(!knob)return;const min=+input.min,max=+input.max,value=+input.value;const ratio=(value-min)/(max-min||1);knob.style.setProperty('--knob-angle',(-135+270*ratio)+'deg')}
 document.querySelectorAll('.control input[type=range]').forEach(input=>{updateKnob(input);input.addEventListener('input',()=>updateKnob(input));const knob=input.closest('.control').querySelector('.knob');knob.addEventListener('pointerdown',e=>{e.preventDefault();const startY=e.clientY,startVal=+input.value;knob.setPointerCapture(e.pointerId);const move=ev=>{const range=+input.max-(+input.min);input.value=Math.max(+input.min,Math.min(+input.max,startVal+(startY-ev.clientY)/120*range));input.dispatchEvent(new Event('input',{bubbles:true}))};const up=()=>{knob.removeEventListener('pointermove',move);knob.removeEventListener('pointerup',up);knob.removeEventListener('pointercancel',up)};knob.addEventListener('pointermove',move);knob.addEventListener('pointerup',up);knob.addEventListener('pointercancel',up)})});
 document.addEventListener('pointerdown',e=>{const b=e.target.closest('.btn');if(!b)return;b.classList.remove('button-flash');void b.offsetWidth;b.classList.add('button-flash');setTimeout(()=>b.classList.remove('button-flash'),160)});
+
+// MPC faceplate: rearrange existing controls without replacing their event handlers.
+function buildMpcFaceplate(){
+const unit=$('unit'),sections=[...unit.querySelectorAll(':scope > section')];if(sections.length!==2)return;
+const left=sections[0],right=sections[1];
+const top=document.createElement('div'),body=document.createElement('div'),lower=document.createElement('div');
+top.className='mpc-top';body.className='mpc-body';lower.className='mpc-lower';
+const leftPanel=document.createElement('div'),center=document.createElement('div'),rightPanel=document.createElement('div'),topSide=document.createElement('div'),sequence=document.createElement('div');
+leftPanel.className='mpc-left';center.className='mpc-center';rightPanel.className='mpc-right';topSide.className='mpc-top-side';sequence.className='mpc-sequence';
+const title=(host,label)=>{const el=document.createElement('div');el.className='mpc-panel-title';el.textContent=label;host.append(el)};
+const move=(host,selector,root=left)=>{const node=root.querySelector(selector);if(node)host.append(node);return node};
+move(top,'.brand');move(top,'.display');
+const master=left.querySelector('#master')?.closest('.control');if(master)topSide.append(master);
+const cap=document.createElement('div');cap.className='mpc-side-caption';cap.textContent='MASTER LEVEL';topSide.append(cap);top.append(topSide);
+title(leftPanel,'MODE / INPUT');move(leftPanel,'.modes');move(leftPanel,'.modeinfo');
+title(leftPanel,'SAMPLE LIBRARY'); 
+// library row must be moved as a unit, not its individual buttons
+const libraryRow=left.querySelector('#librarysongs')?.closest('.row');if(libraryRow)leftPanel.append(libraryRow);
+const loadRow=left.querySelector('#loadsong')?.closest('.row');if(loadRow)leftPanel.append(loadRow);
+const toolsRow=left.querySelector('#autoslice')?.closest('.row');if(toolsRow)leftPanel.append(toolsRow);
+move(center,'.righttop',right);move(center,'.pads',right);move(center,'.bottom',right);
+title(rightPanel,'SOUND CONTROL');const controls=left.querySelector('.controls');if(controls)rightPanel.append(controls);
+title(rightPanel,'TRANSPORT');for(const id of ['rec','playbeat','sequencetoggle']){const button=$(id);if(button){const holder=document.createElement('div');holder.className='row';holder.append(button);rightPanel.append(holder)}}
+const recRow=left.querySelector('#export')?.closest('.row');if(recRow)rightPanel.append(recRow);
+const stopSeq=left.querySelector('#clearseq')?.closest('.row');if(stopSeq)rightPanel.append(stopSeq);
+const soundDesign=left.querySelector('.studio-tools');if(soundDesign)lower.append(soundDesign);
+const seqHeader=left.querySelector('.sectiontitle');if(seqHeader)sequence.append(seqHeader);
+const seq=left.querySelector('#seq');if(seq)sequence.append(seq);
+const seqControls=left.querySelector('#bpm')?.closest('.row');if(seqControls)sequence.append(seqControls);
+for(const selector of ['.hint','.status'])move(sequence,selector);
+lower.append(sequence);body.append(leftPanel,center,rightPanel);
+unit.replaceChildren(top,body,lower);unit.classList.add('mpc-layout');
+}
+buildMpcFaceplate();
 refresh()})();
 </script></body></html>
