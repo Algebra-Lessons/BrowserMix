@@ -159,7 +159,7 @@ move(top,'.brand');move(top,'.display');
 const master=left.querySelector('#master')?.closest('.control');if(master)topSide.append(master);
 const cap=document.createElement('div');cap.className='mpc-side-caption';cap.textContent='MASTER LEVEL';topSide.append(cap);top.append(topSide);
 title(leftPanel,'MODE / INPUT');move(leftPanel,'.modes');move(leftPanel,'.modeinfo');
-title(leftPanel,'SAMPLE LIBRARY');move(leftPanel,'#librarysongs')?.closest('div'); 
+title(leftPanel,'SAMPLE LIBRARY'); 
 // library row must be moved as a unit, not its individual buttons
 const libraryRow=left.querySelector('#librarysongs')?.closest('.row');if(libraryRow)leftPanel.append(libraryRow);
 const loadRow=left.querySelector('#loadsong')?.closest('.row');if(loadRow)leftPanel.append(loadRow);
