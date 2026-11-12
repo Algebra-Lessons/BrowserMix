@@ -150,6 +150,68 @@ body.sample-view .footer{margin:8px auto;font-size:10px}
 .scratch-mixer .crossfade .ends{display:flex;justify-content:space-between;font-size:11px}
 .scratch-help{margin:12px 3px 0;color:#46545b;font-size:12px;line-height:1.5}
 @media(max-width:900px){.scratch-grid{grid-template-columns:minmax(0,1fr) 170px minmax(0,1fr)}.scratch-deck{padding:8px}.scratch-mixer{padding:8px}}
+
+/* Balanced hardware sizing: readable MPC, larger DJ, modest overflow allowed */
+body.sample-view{overflow-x:auto}
+body.sample-view header{max-width:1250px;margin:13px auto 10px}
+body.sample-view header h1{font-size:28px}
+body.sample-view .unit.mpc-layout{width:min(1250px,97%);padding:18px 22px 23px;gap:14px}
+body.sample-view .mpc-top{grid-template-columns:185px minmax(0,1fr) 175px;padding:15px;gap:14px}
+body.sample-view .mpc-top .display{height:252px;padding:12px}
+body.sample-view .mpc-top .display canvas{height:98px}
+body.sample-view .mpc-top .display h2{font-size:18px;margin:10px 0 5px}
+body.sample-view .mpc-top .brand b{font-size:27px}
+body.sample-view .mpc-top .mpc-top-side .control .knob{width:76px;height:76px}
+body.sample-view .mpc-top .mpc-top-side .control .knob:before{left:36px}
+body.sample-view .mpc-body{grid-template-columns:205px minmax(0,1fr) 210px;gap:14px}
+body.sample-view .mpc-left,.sample-view .mpc-right{gap:10px}
+body.sample-view .mpc-left .row .btn,.sample-view .mpc-right .row .btn{min-height:43px;padding:8px 5px;font-size:10px}
+body.sample-view .mpc-left .modes .btn{padding:11px 6px;font-size:11px}
+body.sample-view .mpc-left .modeinfo{font-size:11px;line-height:1.5;padding:9px}
+body.sample-view .mpc-center{padding:11px}
+body.sample-view .mpc-center .pads{padding:11px;gap:10px}
+body.sample-view .mpc-center .pad .key{font-size:24px}
+body.sample-view .mpc-center .pad .name{font-size:11px}
+body.sample-view .mpc-center .righttop{margin-bottom:10px;padding:10px}
+body.sample-view .mpc-right .controls{padding:12px 8px;gap:12px}
+body.sample-view .mpc-right .controls .control .knob{width:58px;height:58px}
+body.sample-view .mpc-right .controls .control .knob:before{left:27px;top:6px;height:19px}
+body.sample-view .mpc-lower{gap:14px;padding-top:14px}
+body.sample-view .studio-tools,.sample-view .mpc-sequence{padding:12px}
+body.sample-view .toolgrid{gap:9px}
+body.sample-view .toolgrid label{font-size:10px}
+body.sample-view .toolgrid select{padding:6px}
+body.sample-view .mpc-sequence .step{height:32px}
+body.sample-view .mpc-sequence .hint{font-size:11px;line-height:1.5}
+body.sample-view .footer{margin:14px auto;font-size:11px}
+.scratch-studio{width:min(1460px,98%);margin:12px auto 14px;padding:22px;border-radius:24px}
+.scratch-header{margin-bottom:17px}
+.scratch-header h2{font-size:30px}
+.scratch-grid{grid-template-columns:minmax(0,1fr) 250px minmax(0,1fr);gap:18px}
+.scratch-deck,.scratch-mixer{padding:19px}
+.scratch-deck h3{font-size:19px}
+.scratch-deck .track{font-size:14px;padding:11px}
+.scratch-wave{height:90px;margin:12px 0}
+.scratch-platter{width:min(300px,83%);margin:14px auto;border-width:12px}
+.scratch-deck .deck-row{gap:9px;margin:12px 0}
+.scratch-deck .deck-row .btn{padding:14px 9px;font-size:12px}
+.scratch-deck .deck-row label{font-size:12px}
+.scratch-mixer h3{font-size:19px}
+.scratch-mixer .mix-channel{padding:15px 12px;margin-bottom:14px}
+.scratch-mixer label{font-size:12px;margin:12px 0}
+.scratch-mixer .crossfade{padding:15px;margin-top:18px}
+.scratch-help{font-size:12px;margin-top:14px}
+@media(max-height:850px) and (min-width:1150px){
+.scratch-studio{padding:13px;margin:5px auto}
+.scratch-header{margin-bottom:8px}
+.scratch-grid{gap:12px}
+.scratch-deck,.scratch-mixer{padding:12px}
+.scratch-wave{height:66px;margin:7px 0}
+.scratch-platter{width:min(245px,70%);margin:7px auto}
+.scratch-deck .deck-row{margin:7px 0}
+.scratch-deck .deck-row .btn{padding:9px 6px}
+.scratch-help{margin-top:7px}
+}
 </style></head><body><header><h1>Browser<span> Mix</span></h1><div class="themebar"><small>BROWSERSAMPLE · MPC STUDIO</small><button class="btn navhome" id="home">⌂ MODES</button><button class="btn navhome" id="themebutton">◉ STYLES</button></div></header><main class="unit" id="unit"><section><div class="brand"><b>BrowserSample</b><span>BROWSER MIX / MPC SAMPLE STATION</span></div><div class="display"><div class="meta"><span id="screenmode">SAMPLE / CHOP</span><span id="screenbank">BANK A</span></div><h2 id="title">LOAD A SONG TO START</h2><p id="detail">PRESS LOAD SONG · PLAY · TAP PADS TO CHOP</p><canvas id="wave" width="620" height="130" title="Click waveform to seek in song mode"></canvas><div class="transport"><div id="progress"></div></div><div class="screenfoot"><span>POSITION <strong id="position">0:00 / 0:00</strong></span><span>PAD <strong id="padno">01</strong></span><span>BPM <strong id="bpmdisplay">100</strong></span></div></div><div class="modes"><button class="btn active" data-mode="chop">✂ SAMPLE CHOP</button><button class="btn" data-mode="drums">◉ DRUM KIT</button><button class="btn" data-mode="sequence">▦ SEQUENCER</button></div><div class="modeinfo" id="modeinfo">Upload a song, press PLAY SONG, then tap any pad while it plays to mark the start of a slice. Tap another pad to mark the end of the previous slice. Stop the song and play your chops!</div><div class="row three"><button class="btn red" id="librarysongs">♫ SONG LIBRARY</button><button class="btn" id="librarydrums">◉ DRUM LIBRARY</button><button class="btn green" id="saveproject">↓ SAVE PROJECT</button></div><div class="row three"><button class="btn red" id="loadsong">↑ LOAD SONG</button><button class="btn" id="songplay">▶ PLAY SONG</button><button class="btn" id="songstop">■ STOP SONG</button></div><div class="row three"><button class="btn" id="autoslice">✂ AUTO 16 CHOPS</button><button class="btn" id="loadpad">↑ LOAD TO PAD</button><button class="btn" id="clear">CLEAR PAD</button></div><div class="controls"><div class="control">MASTER<div class="knob"></div><input id="master" type="range" min="0" max="100" value="80"></div><div class="control">PAD LEVEL<div class="knob"></div><input id="level" type="range" min="0" max="100" value="100"></div><div class="control">SAMPLE PITCH<div class="knob"></div><input id="pitch" type="range" min="-12" max="12" value="0"></div></div><div class="studio-tools"><div class="studio-head"><h3>PAD SOUND DESIGN · SELECT A PAD TO EDIT</h3><span class="small" id="editpad">PAD 01</span></div><div class="toolgrid">
 <label>FINE TUNE <output id="fineout">0 cents</output><input id="fine" type="range" min="-100" max="100" value="0"></label>
 <label>FILTER CUTOFF <output id="filterout">20000 Hz</output><input id="filter" type="range" min="100" max="20000" step="100" value="20000"></label>
@@ -271,7 +333,7 @@ function draw(d){const c=$('wave'+d.letter),g=c.getContext('2d'),w=c.width,h=c.h
 function tick(){decks.forEach(draw);raf=requestAnimationFrame(tick)}
 function showScratch(){init();$('overlay').style.display='none';$('unit').style.display='none';$('scratchstudio').style.display='block';document.body.classList.remove('sample-view');$('home').style.display='none';$('themebutton').style.display='none';fit()}
 function showSample(){decks.forEach(d=>stop(d));$('overlay').style.display='none';$('unit').style.display='flex';$('scratchstudio').style.display='none';$('home').style.display='';$('themebutton').style.display='';document.body.classList.add('sample-view');fit()}
-function fit(){const unit=$('unit');if(unit.style.display==='none')return;unit.style.zoom='1';const available=Math.max(450,window.innerHeight-110),height=unit.getBoundingClientRect().height,width=unit.getBoundingClientRect().width,scale=Math.min(1,available/height,(window.innerWidth-35)/width);unit.style.zoom=String(Math.max(.48,scale))}
+function fit(){const unit=$('unit');if(unit.style.display==='none')return;unit.style.zoom='1';const width=unit.getBoundingClientRect().width;const scale=Math.min(1,(window.innerWidth-30)/width);unit.style.zoom=String(Math.max(.82,scale))}
 $('enterscratch').onclick=showScratch;$('scratchhome').onclick=()=>{$('overlay').style.display='grid'};$('enter').addEventListener('click',showSample);$('home').addEventListener('click',()=>{document.body.classList.remove('sample-view')});window.addEventListener('resize',fit);setTimeout(fit,100);
 decks.forEach((d,i)=>{const l=d.letter;
 $('load'+l).onclick=()=>$('scratchfile'+l).click();
